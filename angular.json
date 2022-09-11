@@ -1,0 +1,8 @@
+{
+  "$schema": "./node_modules/nx/schemas/workspace-schema.json",
+  "version": 2,
+  "projects": {
+    "seng41293-assigment": "apps/seng41293-assigment",
+    "seng41293-assigment-e2e": "apps/seng41293-assigment-e2e"
+  }
+}

@@ -1,0 +1,93 @@
+{
+  "projectType": "application",
+  "sourceRoot": "apps/seng41293-assigment/src",
+  "prefix": "seng41293-assignment",
+  "targets": {
+    "build": {
+      "executor": "@angular-devkit/build-angular:browser",
+      "outputs": ["{options.outputPath}"],
+      "options": {
+        "outputPath": "dist/apps/seng41293-assigment",
+        "index": "apps/seng41293-assigment/src/index.html",
+        "main": "apps/seng41293-assigment/src/main.ts",
+        "polyfills": "apps/seng41293-assigment/src/polyfills.ts",
+        "tsConfig": "apps/seng41293-assigment/tsconfig.app.json",
+        "inlineStyleLanguage": "scss",
+        "assets": [
+          "apps/seng41293-assigment/src/favicon.ico",
+          "apps/seng41293-assigment/src/assets"
+        ],
+        "styles": ["apps/seng41293-assigment/src/styles.scss"],
+        "scripts": []
+      },
+      "configurations": {
+        "production": {
+          "budgets": [
+            {
+              "type": "initial",
+              "maximumWarning": "500kb",
+              "maximumError": "1mb"
+            },
+            {
+              "type": "anyComponentStyle",
+              "maximumWarning": "2kb",
+              "maximumError": "4kb"
+            }
+          ],
+          "fileReplacements": [
+            {
+              "replace": "apps/seng41293-assigment/src/environments/environment.ts",
+              "with": "apps/seng41293-assigment/src/environments/environment.prod.ts"
+            }
+          ],
+          "outputHashing": "all"
+        },
+        "development": {
+          "buildOptimizer": false,
+          "optimization": false,
+          "vendorChunk": true,
+          "extractLicenses": false,
+          "sourceMap": true,
+          "namedChunks": true
+        }
+      },
+      "defaultConfiguration": "production"
+    },
+    "serve": {
+      "executor": "@angular-devkit/build-angular:dev-server",
+      "configurations": {
+        "production": {
+          "browserTarget": "seng41293-assigment:build:production"
+        },
+        "development": {
+          "browserTarget": "seng41293-assigment:build:development"
+        }
+      },
+      "defaultConfiguration": "development"
+    },
+    "extract-i18n": {
+      "executor": "@angular-devkit/build-angular:extract-i18n",
+      "options": {
+        "browserTarget": "seng41293-assigment:build"
+      }
+    },
+    "lint": {
+      "executor": "@nrwl/linter:eslint",
+      "options": {
+        "lintFilePatterns": [
+          "apps/seng41293-assigment/**/*.ts",
+          "apps/seng41293-assigment/**/*.html"
+        ]
+      }
+    },
+    "test": {
+      "executor": "@nrwl/jest:jest",
+      "outputs": ["coverage/apps/seng41293-assigment"],
+      "options": {
+        "jestConfig": "apps/seng41293-assigment/jest.config.ts",
+        "passWithNoTests": true
+      }
+    }
+  },
+  "tags": []
+}
